@@ -46,17 +46,13 @@ def main():
           hgt = True
 
       # Check hcl
-      hcl = False
-      if (passport["hcl"][0] == '#'):
-        hcl = re.match(r"^[a-f0-9]{6}$", passport["hcl"].lstrip('#'))
+      hcl = re.match(r"^\#[a-f0-9]{6}$", passport["hcl"])
 
       # Check ecl
       ecl = re.match(r"amb|blu|brn|gry|grn|hzl|oth", passport["ecl"])
       
       # Check pid
-      pid = False
-      if (re.match(r"^[0-9]{9}$", passport["pid"])):
-        pid = (int(passport["pid"])<1000000000)
+      pid = re.match(r"^[0-9]{9}$", passport["pid"])
 
       if byr and iyr and eyr and hgt and hcl and ecl and pid:
         correct_passports += 1
