@@ -1,5 +1,4 @@
 import re
-import string
 
 def main():
   # Prep array with passport dictionaries
